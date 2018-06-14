@@ -5,6 +5,28 @@
 <title>Insert title here</title>
 </head>
 <body>
+<table border="1">
+		<tr>
+			<th colspan="2">메시지 입력확인</th>
+		</tr>
+		<tr>
+			<td>
+				<button id="sendbtn">메시지 보내기</button>
+			</td>
+			<td>
+				<button id="msgbtn">보낸 메시지 확인</button>
+			</td>
+		</tr>
+		
+	</table>
+	<script>
+		document.getElementById("sendbtn").onclick = function() {
+			location.href = "input.jsp";
+		}
+		document.getElementById("msgbtn").onclick = function() {
+			location.href = "output.do";
+		}
+	</script>
 
 </body>
 </html>
