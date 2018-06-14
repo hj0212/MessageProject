@@ -11,7 +11,7 @@
 <body>
 
 	<c:choose>
-		<c:when test="${inputResult}==1}">
+		<c:when test="${inputResult==1}">
 			<script>
  		alert("메세지 전송 성공!");
  		location.href="index.html";
