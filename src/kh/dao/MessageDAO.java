@@ -3,6 +3,7 @@ package kh.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
 
 public class MessageDAO {
@@ -33,7 +34,20 @@ public class MessageDAO {
 	}
 	
 	public List<MessageDTO> selectMessage() {
+		Connection con = getConnection();
 		
+		String sql = "select * from messages";
+		PreparedStatement pstat = con.prepareStatement(sql);
+		ResultSet rs = pstat.executeQuery();
+		List<MessageDTO> result = new ArrayList<>()
+		while(rs.next()) {
+			result.add(new MessageDTO(rs.getInt("message_id"), rs.getString("name"), rs.getString("message")));
+		}
+		rs.close();
+		con.close();
+		pstat.close();
+		
+		return result;
 	}
 
 }
