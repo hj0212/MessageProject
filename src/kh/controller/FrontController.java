@@ -30,6 +30,7 @@ public class FrontController extends HttpServlet {
 			MessageDTO dto = new MessageDTO(name, message);
 			
 			int result = mdao.insertMessage(dto);
+			request.setAttribute("inputResult", result);
 			isRedirect = false;
 			dst = "inputview.jsp";		
 		}
