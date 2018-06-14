@@ -18,7 +18,7 @@
             <th>메시지</th>
         </tr>
 		<c:forEach items="${msgList}" var="msg">
-			<td>${msg.messge_id}</td>		
+			<td>${msg.message_id}</td>		
 			<td>${msg.name}</td>		
 			<td>${msg.message}</td>		
 		</c:forEach>
