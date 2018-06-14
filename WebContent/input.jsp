@@ -12,10 +12,10 @@
             <th colspan="2">메시지 보내기</th>
             <tr>
                 <td>
-                    보낼 메시지
+                    <input type="text" name="name" placeholder="아이디를 입력하세요.">
                 </td>
                 <td>
-                    <input type="text" placeholder="메시지 내용을 입력하세요.">
+                    <input type="text" name="message" placeholder="메시지 내용을 입력하세요.">
                 </td>
             </tr>
             <tr>
