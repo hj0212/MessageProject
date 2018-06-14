@@ -1,6 +1,8 @@
 package kh.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,6 +35,14 @@ public class FrontController extends HttpServlet {
 			request.setAttribute("inputResult", result);
 			isRedirect = false;
 			dst = "inputview.jsp";		
+		}else if(command.equals("/output.do")) {
+			
+			List<MessageDTO> result = new ArrayList<>();
+			result = mdao.selectMessage();	
+			request.setAttribute("msgList", result);
+
+			isRedirect = false;
+			dst = "outputview.jsp";		
 		}
 		
 		if(isRedirect) {
