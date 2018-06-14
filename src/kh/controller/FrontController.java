@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kh.dao.MessageDAO;
+import kh.dao.MessageDTO;
+
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
 
@@ -30,17 +33,20 @@ public class FrontController extends HttpServlet {
 			String name = request.getParameter("name");
 			String message = request.getParameter("message");		
 			MessageDTO dto = new MessageDTO(name, message);
-			
+			try {
 			int result = mdao.insertMessage(dto);
 			request.setAttribute("inputResult", result);
+			}catch(Exception e) {}
 			isRedirect = false;
-			dst = "inputview.jsp";		
+			dst = "inputview.jsp";	
+			
 		}else if(command.equals("/output.do")) {
 			
 			List<MessageDTO> result = new ArrayList<>();
+			try {
 			result = mdao.selectMessage();	
 			request.setAttribute("msgList", result);
-
+			}catch(Exception e) {}
 			isRedirect = false;
 			dst = "outputview.jsp";		
 		}
